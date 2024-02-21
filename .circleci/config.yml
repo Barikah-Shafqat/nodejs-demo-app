@@ -20,7 +20,7 @@ jobs:
           name: Build Docker image
           command:
             docker build -t nodejsdemoapp1 -t Barikah-Shafqat/nodejsdemoapp1:latest
-            echo $DOCKER_PASSWORD | docker login -u barikahshafqat/nodejsdemoapp1 --maakbt123-stdin
+            echo $DOCKER_PASSWORD | docker login -u barikahshafqat/nodejsdemoapp1 --password-stdin
             docker push Barikah-Shafqat/nodejs-demo-app:latest
 
 workflows:
