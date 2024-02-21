@@ -19,16 +19,9 @@ jobs:
       - run:
           name: Build Docker image
           command:
-            # Build the Docker image
             docker build -t nodejsdemoapp1 .
-
-            # Login to Docker Hub
             echo $DOCKER_PASSWORD | docker login -u barikahshafqat --password-stdin
-    
-            # Tag the image
             docker tag nodejsdemoapp1 barikahshafqat/nodejsdemoapp1:latest
-            
-            # Push the image to Docker Hub
             docker push barikahshafqat/nodejsdemoapp1:latest
 
 workflows:
