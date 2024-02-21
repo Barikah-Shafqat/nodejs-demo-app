@@ -19,10 +19,22 @@ jobs:
       - run:
           name: Build Docker image
           command:
-            docker build -t nodejsdemoapp1 .
-            echo $DOCKER_PASSWORD | docker login -u barikahshafqat --password-stdin
-            docker tag nodejsdemoapp1 barikahshafqat/nodejsdemoapp1:latest
-            docker push barikahshafqat/nodejsdemoapp1:latest
+            - |
+              # Build the Docker image
+              docker build -t nodejsdemoapp1 .
+          
+            - |
+              # Login to Docker Hub
+              echo $DOCKER_PASSWORD | docker login -u barikahshafqat --password-stdin
+          
+            - |
+              # Tag the image
+              docker tag nodejsdemoapp1 barikahshafqat/nodejsdemoapp1:latest
+          
+            - |
+              # Push the image to Docker Hub
+              docker push barikahshafqat/nodejsdemoapp1:latest
+
 
 workflows:
   build_test:
